@@ -1,8 +1,8 @@
 import { Metadata, Channels } from 'sharp';
-import { Initializable } from '@madsci/ts-class-initializable';
+import { PartiallyInitializable } from '@madsci/ts-class-initializable';
 import { ImageMimeType } from './ImageMimeType';
 
-export class ImageMetadata extends Initializable<ImageMetadata> implements Metadata {
+export class ImageMetadata extends PartiallyInitializable<ImageMetadata> implements Metadata {
   /** MIME Type of the image format, e.g. image/jpeg */
   public mimeType: ImageMimeType;
 
