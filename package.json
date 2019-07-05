@@ -1,0 +1,55 @@
+{
+  "name": "@madsci/degas",
+  "version": "0.0.1",
+  "description": "Functions for image file reading, manipulation and validation, in TypeScript",
+  "author": "Madscience Ltd",
+  "license": "UNLICENSED",
+  "private": true,
+  "publishConfig": {
+    "access": "private"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/madscience/degas"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc -p tsconfig.build.json",
+    "format": "prettier --write \"**/*.ts\"",
+    "lint": "eslint --ext .ts --ignore-path .gitignore .",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "@hapi/joi": "^15.0.1",
+    "@madsci/ts-class-initializable": "^1.0.1",
+    "js-yaml": "^3.13.1",
+    "sharp": "^0.22.1"
+  },
+  "devDependencies": {
+    "@types/hapi__joi": "^15.0.2",
+    "@types/jest": "^24.0.12",
+    "@types/node": "^12.0.4",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.7.1",
+    "prettier": "^1.17.1",
+    "rimraf": "^2.6.3",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.5"
+  },
+  "main": "index.js",
+  "np": {
+    "publish": false,
+    "yarn": false,
+    "cleanup": true
+  }
+}

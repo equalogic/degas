@@ -1,0 +1,31 @@
+profiles:
+  - name: example-format
+    version: 1
+    width: 400
+    height: auto
+    maxHeight: 800
+    resizeAlgorithm: cover
+    allowedTypes:
+      - image/jpeg
+      - image/webp
+
+  - name: example-thumbnail
+    version: '1a'
+    width: 80
+    height: 80
+    resizeAlgorithm: cover
+    allowedTypes:
+      - image/jpeg
+      - image/png
+      - image/webp
+
+  - name: example-blurred
+    version: 1
+    width: 1000
+    height: 1000
+    resizeAlgorithm: inside
+    allowedTypes:
+      - image/jpeg
+      - image/webp
+    effects:
+      blur: 20
