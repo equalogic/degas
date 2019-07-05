@@ -4,7 +4,6 @@
   "description": "Functions for image file reading, manipulation and validation, in TypeScript",
   "author": "Madscience Ltd",
   "license": "UNLICENSED",
-  "private": true,
   "publishConfig": {
     "access": "private"
   },
