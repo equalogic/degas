@@ -1,7 +1,14 @@
 import { Duplex, Readable } from 'stream';
-import sharp, { Metadata, Sharp } from 'sharp';
+import sharp, { JpegOptions, Metadata, PngOptions, Sharp, WebpOptions } from 'sharp';
 import { ImageMetadata } from './ImageMetadata';
 import { ImageDimensions } from './ImageDimensions';
+import { ImageMimeType } from './ImageMimeType';
+
+export interface OutputOptions {
+  jpeg?: JpegOptions,
+  png?: PngOptions,
+  webp?: WebpOptions,
+}
 
 export class ImageManipulator {
   private readonly image: Sharp;
@@ -34,6 +41,50 @@ export class ImageManipulator {
 
   public async toBuffer(): Promise<Buffer> {
     return this.image.toBuffer();
+  }
+
+  public convertTo(mimeType: ImageMimeType, options?: OutputOptions): this {
+    const defaultOptions: OutputOptions = {
+      png: {
+        force: true,
+        progressive: true,
+        compressionLevel: 9,
+      },
+      jpeg: {
+        force: true,
+        progressive: true,
+        quality: 80,
+      },
+      webp: {
+        force: true,
+        quality: 80,
+      },
+    };
+
+    if (options == null) {
+      options = defaultOptions;
+    } else {
+      Object.assign(options, defaultOptions, options);
+    }
+
+    switch (mimeType) {
+      case ImageMimeType.PNG:
+        this.image.png(options.png);
+        break;
+
+      case ImageMimeType.JPEG:
+        this.image.jpeg(options.jpeg);
+        break;
+
+      case ImageMimeType.WEBP:
+        this.image.webp(options.webp);
+        break;
+
+      default:
+        throw new Error(`Cannot output to MIME type ${mimeType}: not supported`);
+    }
+
+    return this;
   }
 
   public resize(dimensions: ImageDimensions): this {
