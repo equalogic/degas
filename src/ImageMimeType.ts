@@ -1,9 +1,11 @@
 export enum ImageMimeType {
   GIF = 'image/gif',
   JPEG = 'image/jpeg',
+  JPG = 'image/jpeg',
   PNG = 'image/png',
   SVG = 'image/svg+xml',
   WEBP = 'image/webp',
+  WBP = 'image/webp',
 }
 
 export enum ImageFileExtension {
@@ -36,4 +38,8 @@ export function getShortFileExtensionFromMimeType(mimeType: ImageMimeType): stri
   }
 
   return ImageFileExtensionShort[mimeType];
+}
+
+export function getMimeTypeFromFileExtension(fileExtension: string): ImageMimeType | undefined {
+  return ImageMimeType[fileExtension.toUpperCase()];
 }
