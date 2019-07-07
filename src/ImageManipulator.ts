@@ -5,9 +5,9 @@ import { ImageDimensions } from './ImageDimensions';
 import { ImageMimeType } from './ImageMimeType';
 
 export interface OutputOptions {
-  jpeg?: JpegOptions,
-  png?: PngOptions,
-  webp?: WebpOptions,
+  jpeg?: JpegOptions;
+  png?: PngOptions;
+  webp?: WebpOptions;
 }
 
 export class ImageManipulator {
