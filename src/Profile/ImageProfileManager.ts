@@ -6,22 +6,14 @@ import * as Joi from '@hapi/joi';
 export class ImageProfileManager {
   private profiles: Map<string, ImageProfile>;
 
-  public constructor(configFile?: string | null) {
+  public constructor(config?: any) {
     this.profiles = new Map();
 
-    if (configFile != null) {
-      this.loadConfig(configFile);
+    if (typeof config === 'string') {
+      this.loadConfigFromFile(config);
+    } else if (config != null) {
+      this.applyConfig(config);
     }
-  }
-
-  public loadConfig(configFile: string): this {
-    const config = this.validateConfig(yaml.safeLoad(fs.readFileSync(configFile, 'utf8')));
-
-    (config.profiles as ImageProfileOptions[]).forEach(profile => {
-      this.add(profile);
-    });
-
-    return this;
   }
 
   public add(profile: ImageProfile | ImageProfileOptions): this {
@@ -56,6 +48,22 @@ export class ImageProfileManager {
 
   public reset(): this {
     this.profiles = new Map();
+
+    return this;
+  }
+
+  private loadConfigFromFile(configFile: string): this {
+    const config = yaml.safeLoad(fs.readFileSync(configFile, 'utf8'));
+
+    return this.applyConfig(config);
+  }
+
+  private applyConfig(config: any): this {
+    config = this.validateConfig(config);
+
+    (config.profiles as ImageProfileOptions[]).forEach(profile => {
+      this.add(profile);
+    });
 
     return this;
   }
