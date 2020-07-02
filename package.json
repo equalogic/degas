@@ -20,7 +20,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "rimraf test/.results && mkdirp test/.results && jest --ci --runInBand --reporters=default --reporters=jest-junit",
-    "barrels:generate": "barrelsby --config barrelsby.json"
+    "barrels:generate": "barrelsby --config barrelsby.json",
+    "postversion": "npm run postbuild",
+    "release": "np"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
