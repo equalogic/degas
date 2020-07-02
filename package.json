@@ -12,9 +12,9 @@
     "url": "https://github.com/madscience/degas"
   },
   "scripts": {
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist && npm run barrels:generate",
     "build": "tsc -p tsconfig.build.json",
-    "format": "prettier --write \"**/*.ts\"",
+    "postbuild": "cp package.json README.md dist/",
     "lint": "eslint --ext .ts --ignore-path .gitignore .",
     "lint:fix": "eslint --ext .ts --ignore-path .gitignore . --fix",
     "test": "jest",
