@@ -17,7 +17,8 @@
     "format": "prettier --write \"**/*.ts\"",
     "lint": "eslint --ext .ts --ignore-path .gitignore .",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "barrels:generate": "barrelsby --config barrelsby.json"
   },
   "dependencies": {
     "@hapi/joi": "^15.0.1",
