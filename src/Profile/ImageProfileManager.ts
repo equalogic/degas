@@ -74,15 +74,15 @@ export class ImageProfileManager {
         Joi.object({
           name: Joi.string().required(),
           version: Joi.alternatives([Joi.string(), Joi.number().integer()]).required(),
-          width: Joi.alternatives(Joi.number().integer().greater(0), Joi.string().valid(['auto'])).required(),
-          height: Joi.alternatives(Joi.number().integer().greater(0), Joi.string().valid(['auto'])).required(),
+          width: Joi.alternatives(Joi.number().integer().greater(0), Joi.string().valid('auto')).required(),
+          height: Joi.alternatives(Joi.number().integer().greater(0), Joi.string().valid('auto')).required(),
           minWidth: Joi.number().integer().greater(0).optional().allow(null),
           minHeight: Joi.number().integer().greater(0).optional().allow(null),
           maxWidth: Joi.number().integer().greater(0).optional().allow(null),
           maxHeight: Joi.number().integer().greater(0).optional().allow(null),
-          resizeAlgorithm: Joi.string().valid(['cover', 'contain', 'fill', 'inside', 'outside']).required(),
+          resizeAlgorithm: Joi.string().valid('cover', 'contain', 'fill', 'inside', 'outside').required(),
           allowedTypes: Joi.array()
-            .items(Joi.string().valid(['image/gif', 'image/jpeg', 'image/png', 'image/svg+xml', 'image/webp']))
+            .items(Joi.string().valid('image/gif', 'image/jpeg', 'image/png', 'image/svg+xml', 'image/webp'))
             .required(),
           jpegQuality: Joi.number().integer().greater(0).less(101).optional().allow(null),
           effects: Joi.object({
@@ -94,7 +94,7 @@ export class ImageProfileManager {
       ),
     });
 
-    const { error, value: validatedConfig } = Joi.validate(config, configSchema);
+    const { error, value: validatedConfig } = configSchema.validate(config);
 
     if (error) {
       throw new Error(`Config validation error: ${error.message}`);
