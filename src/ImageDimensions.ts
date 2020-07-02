@@ -5,7 +5,11 @@ export interface ImageDimensions {
 }
 
 export class ResizedImageDimensionsCalculator {
-  public static calculate(naturalWidth: number, naturalHeight: number, requestedDimensions: ImageDimensions): ImageDimensions {
+  public static calculate(
+    naturalWidth: number,
+    naturalHeight: number,
+    requestedDimensions: ImageDimensions,
+  ): ImageDimensions {
     switch (requestedDimensions.algorithm) {
       case 'cover':
         return this.cover(naturalWidth, naturalHeight, requestedDimensions.width, requestedDimensions.height);
@@ -22,7 +26,12 @@ export class ResizedImageDimensionsCalculator {
     }
   }
 
-  public static cover(naturalWidth: number, naturalHeight: number, width: number | null, height: number | null): ImageDimensions {
+  public static cover(
+    naturalWidth: number,
+    naturalHeight: number,
+    width: number | null,
+    height: number | null,
+  ): ImageDimensions {
     if (width == null && height == null) {
       throw new Error('At least one of `width`, `height` must be specified.');
     }
@@ -31,24 +40,28 @@ export class ResizedImageDimensionsCalculator {
 
     // 'cover' will scale/crop to fit if a dimension is provided, otherwise scale proportionally
     return {
-      width: width != null
-        ? width
-        : Math.round(height! * aspectRatio)
-      ,
-      height: height != null
-        ? height
-        : Math.round(width! / aspectRatio)
-      ,
+      width: width != null ? width : Math.round(height! * aspectRatio),
+      height: height != null ? height : Math.round(width! / aspectRatio),
     };
   }
 
-  public static contain(naturalWidth: number, naturalHeight: number, width: number | null, height: number | null): ImageDimensions {
+  public static contain(
+    naturalWidth: number,
+    naturalHeight: number,
+    width: number | null,
+    height: number | null,
+  ): ImageDimensions {
     // 'contain' will scale proportionally to fit inside the provided dimensions and fill any extra space with a
     // background colour, so the resulting size is the same as for 'cover'
     return this.cover(naturalWidth, naturalHeight, width, height);
   }
 
-  public static fill(naturalWidth: number, naturalHeight: number, width: number | null, height: number | null): ImageDimensions {
+  public static fill(
+    naturalWidth: number,
+    naturalHeight: number,
+    width: number | null,
+    height: number | null,
+  ): ImageDimensions {
     if (width == null || height == null) {
       throw new Error('Both `width` and `height` must be specified for `fill` algorithm.');
     }
@@ -59,7 +72,12 @@ export class ResizedImageDimensionsCalculator {
     };
   }
 
-  public static inside(naturalWidth: number, naturalHeight: number, width: number | null, height: number | null): ImageDimensions {
+  public static inside(
+    naturalWidth: number,
+    naturalHeight: number,
+    width: number | null,
+    height: number | null,
+  ): ImageDimensions {
     if (width == null && height == null) {
       throw new Error('At least one of `width`, `height` must be specified.');
     }
@@ -84,18 +102,17 @@ export class ResizedImageDimensionsCalculator {
 
     // scale proportionally to fit the largest natural dimension
     return {
-      width: naturalWidth >= naturalHeight
-        ? width
-        : Math.round(height! * aspectRatio)
-      ,
-      height: naturalHeight > naturalWidth
-        ? height
-        : Math.round(width! / aspectRatio)
-      ,
+      width: naturalWidth >= naturalHeight ? width : Math.round(height! * aspectRatio),
+      height: naturalHeight > naturalWidth ? height : Math.round(width! / aspectRatio),
     };
   }
 
-  public static outside(naturalWidth: number, naturalHeight: number, width: number | null, height: number | null): ImageDimensions {
+  public static outside(
+    naturalWidth: number,
+    naturalHeight: number,
+    width: number | null,
+    height: number | null,
+  ): ImageDimensions {
     if (width == null && height == null) {
       throw new Error('At least one of `width`, `height` must be specified.');
     }
@@ -120,14 +137,8 @@ export class ResizedImageDimensionsCalculator {
 
     // scale proportionally to fit the largest natural dimension
     return {
-      width: naturalWidth >= naturalHeight
-        ? Math.round(height! * aspectRatio)
-        : width
-      ,
-      height: naturalHeight > naturalWidth
-        ? Math.round(width! / aspectRatio)
-        : height
-      ,
+      width: naturalWidth >= naturalHeight ? Math.round(height! * aspectRatio) : width,
+      height: naturalHeight > naturalWidth ? Math.round(width! / aspectRatio) : height,
     };
   }
 }

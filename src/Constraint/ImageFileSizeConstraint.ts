@@ -5,15 +5,17 @@ import { ConstraintViolation } from './ConstraintViolation';
 export class ImageFileSizeConstraint implements ImageMetadataConstraint {
   private _violations: ConstraintViolation[] = [];
 
-  public constructor(
-    private readonly maxKilobytes: number,
-  ) {}
+  public constructor(private readonly maxKilobytes: number) {}
 
   public isValid(metadata: ImageMetadata): boolean {
     this._violations = [];
 
     if (metadata.size == null) {
-      this._violations.push(new ConstraintViolation('Could not determine a file size for the image. (Possibly corrupt or invalid image data.)'));
+      this._violations.push(
+        new ConstraintViolation(
+          'Could not determine a file size for the image. (Possibly corrupt or invalid image data.)',
+        ),
+      );
 
       return false;
     }

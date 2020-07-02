@@ -26,9 +26,11 @@ export class ImageManipulator {
   }
 
   public async readMetadata(): Promise<ImageMetadata> {
-    return this.image.metadata().then((metadata: Metadata): ImageMetadata => {
-      return ImageMetadata.createFromSharpMetadata(metadata);
-    });
+    return this.image.metadata().then(
+      (metadata: Metadata): ImageMetadata => {
+        return ImageMetadata.createFromSharpMetadata(metadata);
+      },
+    );
   }
 
   public getStream(): Duplex {
