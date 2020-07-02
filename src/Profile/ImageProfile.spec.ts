@@ -18,7 +18,7 @@ test('can apply profile to an image', async () => {
   const manipulator = new ImageManipulator(fs.readFileSync(path.join(__dirname, '..', 'test-image.png')));
   profile.applyTo(manipulator);
   const resultImage = await manipulator.toBuffer();
-  const metadata = await (new ImageManipulator(resultImage)).readMetadata();
+  const metadata = await new ImageManipulator(resultImage).readMetadata();
 
   // TODO: Should be changing image format to JPEG
   expect(metadata.mimeType).toBe('image/png');

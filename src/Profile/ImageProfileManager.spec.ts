@@ -30,9 +30,7 @@ test('can load profiles from an object', () => {
         width: 80,
         height: 80,
         resizeAlgorithm: 'cover',
-        allowedTypes: [
-          'image/jpeg',
-        ],
+        allowedTypes: ['image/jpeg'],
       },
     ],
   });

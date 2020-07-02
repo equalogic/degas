@@ -6,15 +6,17 @@ import { ConstraintViolation } from './ConstraintViolation';
 export class ImageMimeTypeConstraint implements ImageMetadataConstraint {
   private _violations: ConstraintViolation[] = [];
 
-  public constructor(
-    private readonly allowedTypes: ImageMimeType[],
-  ) {}
+  public constructor(private readonly allowedTypes: ImageMimeType[]) {}
 
   public isValid(metadata: ImageMetadata): boolean {
     this._violations = [];
 
     if (metadata.mimeType == null) {
-      this._violations.push(new ConstraintViolation('Could not determine a MIME Type for the image. (Possibly corrupt or invalid image data.)'));
+      this._violations.push(
+        new ConstraintViolation(
+          'Could not determine a MIME Type for the image. (Possibly corrupt or invalid image data.)',
+        ),
+      );
 
       return false;
     }

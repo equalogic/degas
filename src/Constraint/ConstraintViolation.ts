@@ -1,5 +1,3 @@
 export class ConstraintViolation {
-  public constructor(
-    public readonly message: string,
-  ) {}
+  public constructor(public readonly message: string) {}
 }
