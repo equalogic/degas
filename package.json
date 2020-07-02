@@ -23,7 +23,7 @@
     "barrels:generate": "barrelsby --config barrelsby.json"
   },
   "dependencies": {
-    "@hapi/joi": "^15.0.1",
+    "@hapi/joi": "^17.1.1",
     "@madsci/ts-class-initializable": "^1.0.1",
     "js-yaml": "^3.13.1",
     "sharp": "^0.25.4"
