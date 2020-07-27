@@ -19,7 +19,7 @@
     "lint:fix": "eslint --ext .ts --ignore-path .gitignore . --fix",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:ci": "rimraf test/.results && mkdirp test/.results && jest --ci --runInBand --reporters=default --reporters=jest-junit",
+    "test:ci": "rimraf test/.results && mkdirp test/.results && jest --ci --runInBand",
     "barrels:generate": "barrelsby --config barrelsby.json",
     "postversion": "npm run postbuild",
     "release": "np"
@@ -48,7 +48,6 @@
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^4.2.5",
     "jest": "^25.1.0",
-    "jest-junit": "^11.0.1",
     "lint-staged": "^10.2.9",
     "mkdirp": "^1.0.4",
     "np": "^6.2.5",
@@ -66,9 +65,5 @@
   },
   "lint-staged": {
     "*.{ts,js}": "eslint --cache --fix"
-  },
-  "jest-junit": {
-    "outputDirectory": "./test/.results",
-    "outputName": "junit.xml"
   }
 }
