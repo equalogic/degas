@@ -1,5 +1,5 @@
 import { Duplex, Readable } from 'stream';
-import sharp, { JpegOptions, Metadata, PngOptions, Sharp, WebpOptions } from 'sharp';
+import sharp, { JpegOptions, Metadata, PngOptions, RotateOptions, Sharp, WebpOptions } from 'sharp';
 import { ImageMetadata } from './ImageMetadata';
 import { ImageDimensions } from './ImageDimensions';
 import { ImageMimeType } from './ImageMimeType';
@@ -99,6 +99,12 @@ export class ImageManipulator {
       height: dimensions.height != null ? dimensions.height : undefined,
       fit: dimensions.algorithm,
     });
+
+    return this;
+  }
+
+  public rotate(angle?: number, options?: RotateOptions): this {
+    this.image.rotate(angle, options);
 
     return this;
   }
