@@ -24,6 +24,17 @@ test('can resize an image', async () => {
   expect(metadata.height).toBe(400);
 });
 
+test('can rotate an image', async () => {
+  const manipulator = new ImageManipulator(fs.readFileSync(path.join(__dirname, 'test-image.png')));
+  const rotatedImage = await manipulator.rotate(90).toBuffer();
+  const metadata = await new ImageManipulator(rotatedImage).readMetadata();
+
+  expect(metadata.mimeType).toBe('image/png');
+  expect(metadata.format).toBe('png');
+  expect(metadata.width).toBe(800);
+  expect(metadata.height).toBe(1280);
+});
+
 test('can apply blur effect to an image', async () => {
   const manipulator = new ImageManipulator(fs.readFileSync(path.join(__dirname, 'test-image.png')));
   const blurredImage = await manipulator.blur(20).toBuffer();
