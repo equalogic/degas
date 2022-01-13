@@ -1,6 +1,6 @@
 {
   "name": "@madsci/degas",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Functions for image file reading, manipulation and validation, in TypeScript",
   "author": "Madscience Ltd",
   "license": "UNLICENSED",
