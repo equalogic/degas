@@ -1,4 +1,4 @@
-import { Initializable } from '@madsci/ts-class-initializable';
+import { Initializable } from 'ts-class-initializable';
 import { ImageMimeType } from '../ImageMimeType';
 import { ImageManipulator } from '../ImageManipulator';
 import { ImageDimensions } from '../ImageDimensions';
