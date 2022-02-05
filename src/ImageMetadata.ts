@@ -1,4 +1,4 @@
-import { Metadata, Channels } from 'sharp';
+import { Channels, ColourspaceEnum, FormatEnum, Metadata } from 'sharp';
 import { PartiallyInitializable } from 'ts-class-initializable';
 import { ImageMimeType } from './ImageMimeType';
 
@@ -11,7 +11,7 @@ export class ImageMetadata extends PartiallyInitializable<ImageMetadata> impleme
    */
 
   /** Name of decoder used to decompress image data e.g. jpeg, png, webp, gif, svg */
-  public format?: string;
+  public format?: keyof FormatEnum;
   /** Total size of image in bytes, for Stream and Buffer input only */
   public size?: number;
   /** Number of pixels wide (EXIF orientation is not taken into consideration) */
@@ -19,7 +19,7 @@ export class ImageMetadata extends PartiallyInitializable<ImageMetadata> impleme
   /** Number of pixels high (EXIF orientation is not taken into consideration) */
   public height?: number;
   /** Name of colour space interpretation e.g. srgb, rgb, cmyk, lab, b-w ... */
-  public space?: string;
+  public space?: keyof ColourspaceEnum;
   /** Number of bands e.g. 3 for sRGB, 4 for CMYK */
   public channels?: Channels;
   /** Name of pixel depth format e.g. uchar, char, ushort, float ... */
