@@ -53,7 +53,7 @@ export class ImageProfileManager {
   }
 
   private loadConfigFromFile(configFile: string): this {
-    const config = yaml.safeLoad(fs.readFileSync(configFile, 'utf8'));
+    const config = yaml.load(fs.readFileSync(configFile, 'utf8'));
 
     return this.applyConfig(config);
   }
