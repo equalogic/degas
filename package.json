@@ -36,7 +36,7 @@
     "@types/jest": "27.4.1",
     "@types/js-yaml": "4.0.5",
     "@types/node": "14.18.12",
-    "@types/sharp": "0.30.0",
+    "@types/sharp": "0.30.1",
     "@typescript-eslint/eslint-plugin": "5.17.0",
     "@typescript-eslint/parser": "5.17.0",
     "barrelsby": "2.3.3",
