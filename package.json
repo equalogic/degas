@@ -28,7 +28,7 @@
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "js-yaml": "^4.0.0",
-    "sharp": "^0.30.0",
+    "sharp": "^0.31.0",
     "ts-class-initializable": "^1.0.2"
   },
   "devDependencies": {
