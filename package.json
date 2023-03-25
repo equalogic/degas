@@ -46,7 +46,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "6.1.1",
     "jest": "27.5.1",
-    "mkdirp": "2.1.5",
+    "mkdirp": "2.1.6",
     "np": "7.6.4",
     "prettier": "2.8.6",
     "rimraf": "4.4.0",
