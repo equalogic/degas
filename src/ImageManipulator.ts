@@ -1,5 +1,5 @@
 import { Duplex, Readable } from 'stream';
-import sharp, { JpegOptions, Metadata, PngOptions, RotateOptions, Sharp, WebpOptions } from 'sharp';
+import sharp, { JpegOptions, Metadata, PngOptions, RotateOptions, Sharp, SharpOptions, WebpOptions } from 'sharp';
 import { ImageMetadata } from './ImageMetadata';
 import { ImageDimensions } from './ImageDimensions';
 import { ImageMimeType } from './ImageMimeType';
@@ -15,13 +15,17 @@ export class ImageManipulator {
   private readonly isStream: boolean;
 
   public constructor(input: Readable | Buffer) {
+    const sharpOptions: SharpOptions = {
+      failOn: 'none',
+    };
+
     if (input instanceof Readable) {
       this.isStream = true;
-      this.image = sharp();
+      this.image = sharp(sharpOptions);
 
       input.pipe(this.image);
     } else {
-      this.image = sharp(input);
+      this.image = sharp(input, sharpOptions);
     }
   }
 
