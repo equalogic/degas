@@ -14,21 +14,21 @@
   "rebaseWhen": "conflicted",
   "lockFileMaintenance": true,
   "labels": ["dependencies"],
-  "reviewers": ["sgarner"],
+  "reviewers": [],
   "packageRules": [
     {
       "packagePatterns": ["eslint"],
       "groupName": "eslint"
     },
     {
-      "packagePatterns": ["jest"],
+      "packagePatterns": ["jest", "ts-jest", "@types/jest"],
       "groupName": "jest"
     },
     {
       "matchDatasources": ["nvm", "npm"],
       "matchPackageNames": ["node", "@types/node"],
       "groupName": "Node.js",
-      "allowedVersions": "^14"
+      "allowedVersions": "^18"
     }
   ]
 }
