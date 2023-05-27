@@ -1,6 +1,6 @@
 {
   "name": "degas",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Functions for image file reading, manipulation and validation, in TypeScript",
   "author": "Equalogic Ltd",
   "license": "UNLICENSED",
