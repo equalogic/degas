@@ -59,7 +59,7 @@ jobs:
           GPG_KEY: ${{ secrets.BUILD_USER_GPG_KEY }}
           GPG_KEY_PASSPHRASE: ${{ secrets.BUILD_USER_GPG_KEY_PASSPHRASE }}
         if: env.GPG_KEY != null && env.GPG_KEY_PASSPHRASE != null
-        uses: crazy-max/ghaction-import-gpg@v5
+        uses: crazy-max/ghaction-import-gpg@v6
         with:
           gpg_private_key: ${{ env.GPG_KEY }}
           passphrase: ${{ env.GPG_KEY_PASSPHRASE }}
