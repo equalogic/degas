@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@types/hapi__joi": "17.1.13",
-    "@types/jest": "29.5.7",
+    "@types/jest": "29.5.8",
     "@types/js-yaml": "4.0.8",
     "@types/node": "18.18.8",
     "@types/sharp": "0.31.1",
