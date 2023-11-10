@@ -32,7 +32,7 @@
     "ts-class-initializable": "^1.0.2"
   },
   "devDependencies": {
-    "@types/hapi__joi": "17.1.12",
+    "@types/hapi__joi": "17.1.13",
     "@types/jest": "29.5.7",
     "@types/js-yaml": "4.0.8",
     "@types/node": "18.18.8",
