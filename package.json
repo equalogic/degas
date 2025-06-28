@@ -45,7 +45,7 @@
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-n": "14.0.0",
     "eslint-plugin-promise": "6.6.0",
-    "jest": "30.0.2",
+    "jest": "30.0.3",
     "mkdirp": "3.0.1",
     "np": "10.2.0",
     "prettier": "3.2.2",
