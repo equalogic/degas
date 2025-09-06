@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - name: Setup Node.js and NPM
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -44,7 +44,7 @@ jobs:
           token: ${{ secrets.BUILD_USER_TOKEN || github.token }} # allows commit of any fixes to trigger a new workflow run
       - uses: actions/checkout@v5
       - name: Setup Node.js and NPM
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
       - name: Restore node_modules artifact
@@ -87,7 +87,7 @@ jobs:
       # Setup
       - uses: actions/checkout@v5
       - name: Setup Node.js and NPM
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
       - name: Restore node_modules artifact
@@ -120,7 +120,7 @@ jobs:
       # Setup
       - uses: actions/checkout@v5
       - name: Setup Node.js and NPM
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
       - name: Restore node_modules artifact
