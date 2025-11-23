@@ -10,7 +10,7 @@ jobs:
     name: Dependencies
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Setup Node.js and NPM
         uses: actions/setup-node@v6
         with:
@@ -39,10 +39,10 @@ jobs:
     needs: [dependencies]
     steps:
       # Setup
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           token: ${{ secrets.BUILD_USER_TOKEN || github.token }} # allows commit of any fixes to trigger a new workflow run
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Setup Node.js and NPM
         uses: actions/setup-node@v6
         with:
@@ -85,7 +85,7 @@ jobs:
     needs: [dependencies]
     steps:
       # Setup
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Setup Node.js and NPM
         uses: actions/setup-node@v6
         with:
@@ -118,7 +118,7 @@ jobs:
     needs: [dependencies]
     steps:
       # Setup
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Setup Node.js and NPM
         uses: actions/setup-node@v6
         with:
