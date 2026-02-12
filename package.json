@@ -28,7 +28,7 @@
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "js-yaml": "^4.0.0",
-    "sharp": "^0.33.0",
+    "sharp": "^0.34.0",
     "ts-class-initializable": "^1.0.2"
   },
   "devDependencies": {
@@ -36,7 +36,7 @@
     "@types/jest": "30.0.0",
     "@types/js-yaml": "4.0.9",
     "@types/node": "18.19.130",
-    "@types/sharp": "0.31.1",
+    "@types/sharp": "0.32.0",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "barrelsby": "2.8.1",
