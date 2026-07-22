@@ -67,7 +67,7 @@ jobs:
           git_commit_gpgsign: true
       # Lint
       - name: Run linters
-        uses: wearerequired/lint-action@v2
+        uses: wearerequired/lint-action@v3
         with:
           prettier: true
           eslint: true
